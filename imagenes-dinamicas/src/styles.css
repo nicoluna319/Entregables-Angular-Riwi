@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: #161D6F !important;
+}
+
+.custom-bg {
+    background-color: #0B2F9F !important;
+    color: white; /* Para que el texto sea legible sobre el fondo oscuro */
+  }

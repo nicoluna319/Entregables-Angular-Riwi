@@ -1,1 +1,12 @@
-<p>category-filter works!</p>
+
+<div class="mb-3 mt-4 col-md-2 mx-auto p-2 custom-bg shadow p-3 mb-5 rounded ">
+    <label for="categoryFilter" class="form-label">Filtrar por categoría:</label>
+    <select id="categoryFilter" class="form-select" (change)="onFilterChange($event)">
+      <option value="">Todas</option>
+      <option value="Human">Humanos</option>
+      <option value="Alien">Aliens</option>
+      <option value="Dead">Muertos</option>
+      <option value="">Si no hay imagenes</option>
+    </select>
+  </div>
+  

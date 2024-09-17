@@ -1,1 +1,11 @@
-<p>favorites works!</p>
+<h3 class="text-light mx-auto p-3">Personajes Favoritos</h3>
+<div class="container mx-auto p-3 row" *ngIf="favoriteCharacters.length > 0; else noFavorites" >
+    <div *ngFor="let character of favoriteCharacters" class="favorite-item col">
+        <img [src]="character.image" alt="{{character.name}}" class="favorite-img">
+        <p class="text-light mx-auto p-3">{{character.name}}</p>
+    </div>
+</div>
+
+<ng-template #noFavorites>
+    <p class="text-light mx-auto p-3">No tienes personajes favoritos aun</p>
+</ng-template>

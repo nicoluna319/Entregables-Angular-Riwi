@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-image-details',
   templateUrl: './image-details.component.html',
   styleUrls: ['./image-details.component.css']
 })
-export class ImageDetailsComponent implements OnInit {
+export class ImageDetailsComponent  {
 
-  constructor() { }
+  @Input() character:any = null;
+  @Output() close = new EventEmitter<void>();
 
-  ngOnInit(): void {
+  closeDetails() {
+    this.close.emit();
   }
-
 }

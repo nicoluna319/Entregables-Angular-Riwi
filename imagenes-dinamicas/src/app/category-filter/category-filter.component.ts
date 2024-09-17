@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-category-filter',
   templateUrl: './category-filter.component.html',
   styleUrls: ['./category-filter.component.css']
 })
-export class CategoryFilterComponent implements OnInit {
+export class CategoryFilterComponent {
 
-  constructor() { }
+  @Output() filterChanged = new EventEmitter<string>();
 
-  ngOnInit(): void {
+  onFilterChange(event: Event): void {
+    const target = event.target as HTMLSelectElement | null;
+    if (target) {
+      const selectedCategory = target.value;
+      if (selectedCategory) {
+        this.filterChanged.emit(selectedCategory);
+      } else {
+        alert('Error: No se encontró ninguna categoría seleccionada.');
+      }
+    }
   }
-
 }

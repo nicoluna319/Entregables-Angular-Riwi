@@ -1,1 +1,23 @@
-<p>gallery works!</p>
+<h1 class="p-2 mt-4 text-center text-light">Galeria de imagenes Api Rick y Morty <br> Nicolas Luna Romero</h1>
+
+<app-category-filter (filterChanged)="filterCharacters($event)"></app-category-filter>
+
+<app-favorites></app-favorites>
+
+<div class="row grid mx-auto p-2" style="width: 105rem;">
+    <div class="col-md-4" *ngFor="let character of characters">
+
+        <div class="card mb-5">
+            <img [src]="character.image" class="card-img-top" alt="{{character.name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{character.name}}</h5>
+                <p class="card-text">Especie: {{character.species}}</p>
+                <p class="card-text">Estado: {{character.status}}</p>
+                <button class="btn btn-primary" (click)="selectCharacter(character)">Ver detalles</button>
+                <button class="btn btn-warning" (click)="addToFavorites(character)">Agregar a Favoritos</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-image-details *ngIf="selectedCharacter" [character]="selectedCharacter" (close)="closeDetails()"></app-image-details>
